@@ -8,6 +8,7 @@ import ru.school12.schedule.model.SchedulePayload
 import ru.school12.schedule.model.ScheduleStatus
 import ru.school12.schedule.model.normalizeClassKey
 import java.time.Duration
+import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.ZoneId
@@ -20,6 +21,11 @@ object ScheduleEngine {
     val SCHOOL_ZONE: ZoneId = ZoneId.of("Europe/Saratov")
     private val RU_LOCALE = Locale.forLanguageTag("ru-RU")
     private val TIME_FORMATTER: DateTimeFormatter = DateTimeFormatter.ofPattern("H:mm")
+    private val TEST_TIME_FORMATTER: DateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss")
+
+    const val TEST_LESSON_MS = 20_000L
+    const val TEST_BREAK_MS = 10_000L
+    const val TEST_LESSON_COUNT = 3
 
     val FALLBACK_BELLS: Map<Int, BellSlot> = mapOf(
         1 to BellSlot("08:00", "08:40"),
@@ -118,11 +124,49 @@ object ScheduleEngine {
         return DayTab.TODAY
     }
 
+    fun buildTestDaySchedule(
+        payload: SchedulePayload?,
+        selectedClass: String,
+        testModeStartMs: Long,
+        now: ZonedDateTime = nowSchool(),
+    ): ResolvedDaySchedule {
+        val sampleLessons = latestAvailableDay(payload, selectedClass)?.lessons
+            ?.take(TEST_LESSON_COUNT)
+            ?.takeIf { it.size == TEST_LESSON_COUNT }
+            ?: listOf(
+                Lesson(number = 1, subject = "Информатика", room = "313"),
+                Lesson(number = 2, subject = "Физика", room = "310"),
+                Lesson(number = 3, subject = "Алгебра", room = "305"),
+            )
+
+        val stepMs = TEST_LESSON_MS + TEST_BREAK_MS
+        val timed = sampleLessons.mapIndexed { idx, base ->
+            val startMs = testModeStartMs + idx * stepMs
+            val endMs = startMs + TEST_LESSON_MS
+            base.copy(
+                number = idx + 1,
+                startTime = formatEpochTime(startMs),
+                endTime = formatEpochTime(endMs),
+            )
+        }
+
+        return ResolvedDaySchedule(
+            date = now.toLocalDate(),
+            dayOfWeek = "Тестовый режим (20с / 10с)",
+            lessons = timed,
+        )
+    }
+
     fun computeStatus(
         payload: SchedulePayload?,
         selectedClass: String,
         now: ZonedDateTime = nowSchool(),
+        testModeStartMs: Long = 0L,
     ): ScheduleStatus {
+        if (testModeStartMs > 0L) {
+            return computeTestStatus(payload, selectedClass, now, testModeStartMs)
+        }
+
         if (payload == null) return ScheduleStatus.NoData
         val today = now.toLocalDate()
         val todaySchedule = lessonsForDate(payload, today, selectedClass)
@@ -169,7 +213,8 @@ object ScheduleEngine {
                 val totalMs = Duration.between(start, end).toMillis().coerceAtLeast(1L)
                 val elapsedMs = Duration.between(start, now).toMillis().coerceIn(0L, totalMs)
                 val progress = ((elapsedMs * 100L) / totalMs).toInt().coerceIn(0, 100)
-                val minsLeft = ((totalMs - elapsedMs) / 60_000L).coerceAtLeast(0L)
+                val secsLeft = ((totalMs - elapsedMs + 999L) / 1_000L).coerceAtLeast(0L)
+                val minsLeft = (secsLeft / 60L).coerceAtLeast(0L)
                 return ScheduleStatus.InLesson(
                     currentLesson = lesson,
                     nextLesson = nextLesson,
@@ -177,6 +222,7 @@ object ScheduleEngine {
                     endEpochMillis = end.toInstant().toEpochMilli(),
                     progressPercent = progress,
                     minutesRemaining = minsLeft,
+                    secondsRemaining = secsLeft,
                 )
             }
 
@@ -186,7 +232,8 @@ object ScheduleEngine {
                     val totalMs = Duration.between(end, upcomingStart).toMillis().coerceAtLeast(1L)
                     val elapsedMs = Duration.between(end, now).toMillis().coerceIn(0L, totalMs)
                     val progress = ((elapsedMs * 100L) / totalMs).toInt().coerceIn(0, 100)
-                    val minsLeft = ((totalMs - elapsedMs) / 60_000L).coerceAtLeast(0L)
+                    val secsLeft = ((totalMs - elapsedMs + 999L) / 1_000L).coerceAtLeast(0L)
+                    val minsLeft = (secsLeft / 60L).coerceAtLeast(0L)
                     return ScheduleStatus.InBreak(
                         previousLesson = lesson,
                         nextLesson = upcomingLesson,
@@ -194,6 +241,7 @@ object ScheduleEngine {
                         endEpochMillis = upcomingStart.toInstant().toEpochMilli(),
                         progressPercent = progress,
                         minutesRemaining = minsLeft,
+                        secondsRemaining = secsLeft,
                     )
                 }
             }
@@ -206,11 +254,89 @@ object ScheduleEngine {
         )
     }
 
+    private fun computeTestStatus(
+        payload: SchedulePayload?,
+        selectedClass: String,
+        now: ZonedDateTime,
+        testModeStartMs: Long,
+    ): ScheduleStatus {
+        val nowMs = now.toInstant().toEpochMilli()
+        val testDay = buildTestDaySchedule(payload, selectedClass, testModeStartMs, now)
+        val lessons = testDay.lessons
+        val stepMs = TEST_LESSON_MS + TEST_BREAK_MS
+
+        if (nowMs < testModeStartMs) {
+            return ScheduleStatus.BeforeSchool(
+                firstLesson = lessons.first(),
+                startEpochMillis = testModeStartMs,
+                minutesUntilStart = 1L,
+            )
+        }
+
+        for (i in lessons.indices) {
+            val lessonStart = testModeStartMs + i * stepMs
+            val lessonEnd = lessonStart + TEST_LESSON_MS
+            val breakEnd = lessonEnd + TEST_BREAK_MS
+
+            if (nowMs in lessonStart until lessonEnd) {
+                val elapsed = (nowMs - lessonStart).coerceIn(0L, TEST_LESSON_MS)
+                val progress = ((elapsed * 100L) / TEST_LESSON_MS).toInt().coerceIn(0, 100)
+                val secsLeft = ((lessonEnd - nowMs + 999L) / 1_000L).coerceAtLeast(0L)
+                return ScheduleStatus.InLesson(
+                    currentLesson = lessons[i],
+                    nextLesson = lessons.getOrNull(i + 1),
+                    startEpochMillis = lessonStart,
+                    endEpochMillis = lessonEnd,
+                    progressPercent = progress,
+                    minutesRemaining = secsLeft / 60L,
+                    secondsRemaining = secsLeft,
+                )
+            }
+
+            if (i + 1 < lessons.size && nowMs in lessonEnd until breakEnd) {
+                val elapsed = (nowMs - lessonEnd).coerceIn(0L, TEST_BREAK_MS)
+                val progress = ((elapsed * 100L) / TEST_BREAK_MS).toInt().coerceIn(0, 100)
+                val secsLeft = ((breakEnd - nowMs + 999L) / 1_000L).coerceAtLeast(0L)
+                return ScheduleStatus.InBreak(
+                    previousLesson = lessons[i],
+                    nextLesson = lessons[i + 1],
+                    startEpochMillis = lessonEnd,
+                    endEpochMillis = breakEnd,
+                    progressPercent = progress,
+                    minutesRemaining = secsLeft / 60L,
+                    secondsRemaining = secsLeft,
+                )
+            }
+        }
+
+        return ScheduleStatus.AfterSchool(
+            tomorrowDate = now.toLocalDate().plusDays(1),
+            tomorrowDayOfWeek = "Тест завершён",
+            tomorrowFirstLesson = lessons.firstOrNull(),
+        )
+    }
+
     fun nextAlarmTriggerTime(
         payload: SchedulePayload?,
         selectedClass: String,
         now: ZonedDateTime = nowSchool(),
+        testModeStartMs: Long = 0L,
     ): ZonedDateTime? {
+        if (testModeStartMs > 0L) {
+            val nowMs = now.toInstant().toEpochMilli()
+            val stepMs = TEST_LESSON_MS + TEST_BREAK_MS
+            val boundaries = mutableListOf<Long>()
+            for (i in 0 until TEST_LESSON_COUNT) {
+                val start = testModeStartMs + i * stepMs
+                boundaries.add(start)
+                boundaries.add(start + TEST_LESSON_MS)
+            }
+            val nextMs = boundaries.firstOrNull { it > nowMs + 500L }
+            if (nextMs != null) {
+                return ZonedDateTime.ofInstant(Instant.ofEpochMilli(nextMs), SCHOOL_ZONE)
+            }
+        }
+
         if (payload == null) return null
         val today = now.toLocalDate()
         val todaySchedule = lessonsForDate(payload, today, selectedClass)
@@ -254,6 +380,9 @@ object ScheduleEngine {
             lesson
         }
     }
+
+    private fun formatEpochTime(epochMs: Long): String =
+        Instant.ofEpochMilli(epochMs).atZone(SCHOOL_ZONE).format(TEST_TIME_FORMATTER)
 
     fun lessonStartTime(date: LocalDate, lesson: Lesson): ZonedDateTime? =
         parseTime(lesson.startTime)?.atDate(date)?.atZone(SCHOOL_ZONE)

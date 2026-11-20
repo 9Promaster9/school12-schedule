@@ -49,6 +49,7 @@ sealed interface ScheduleStatus {
         val endEpochMillis: Long,
         val progressPercent: Int,
         val minutesRemaining: Long,
+        val secondsRemaining: Long = minutesRemaining * 60L,
     ) : ScheduleStatus
 
     data class InBreak(
@@ -58,6 +59,7 @@ sealed interface ScheduleStatus {
         val endEpochMillis: Long,
         val progressPercent: Int,
         val minutesRemaining: Long,
+        val secondsRemaining: Long = minutesRemaining * 60L,
     ) : ScheduleStatus
 
     data class BeforeSchool(
@@ -88,3 +90,10 @@ fun normalizeClassKey(raw: String): String =
         .lowercase()
         .replace(Regex("\\s+"), "")
         .replace('ё', 'е')
+
+fun formatRemainingLabel(minutesRemaining: Long, secondsRemaining: Long): String =
+    if (secondsRemaining < 60L) {
+        "${secondsRemaining.coerceAtLeast(0L)} сек"
+    } else {
+        "$minutesRemaining мин"
+    }

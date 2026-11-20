@@ -47,6 +47,10 @@ class ScheduleRepository(private val context: Context) {
         prefs[KEY_LIVE_UPDATES_ENABLED] ?: true
     }
 
+    val testModeStartMsFlow: Flow<Long> = context.scheduleDataStore.data.map { prefs ->
+        prefs[KEY_TEST_MODE_START_MS] ?: 0L
+    }
+
     val scheduleFlow: Flow<SchedulePayload?> = context.scheduleDataStore.data.map { prefs ->
         val raw = prefs[KEY_SCHEDULE_JSON] ?: return@map null
         runCatching { json.decodeFromString<SchedulePayload>(raw) }.getOrNull()
@@ -60,6 +64,8 @@ class ScheduleRepository(private val context: Context) {
 
     suspend fun isLiveUpdatesEnabled(): Boolean = liveUpdatesEnabledFlow.first()
 
+    suspend fun getTestModeStartMs(): Long = testModeStartMsFlow.first()
+
     suspend fun getCachedSchedule(): SchedulePayload? = scheduleFlow.first()
 
     suspend fun setSelectedClass(className: String) {
@@ -71,6 +77,12 @@ class ScheduleRepository(private val context: Context) {
     suspend fun setLiveUpdatesEnabled(enabled: Boolean) {
         context.scheduleDataStore.edit { prefs ->
             prefs[KEY_LIVE_UPDATES_ENABLED] = enabled
+        }
+    }
+
+    suspend fun setTestModeStartMs(startEpochMs: Long) {
+        context.scheduleDataStore.edit { prefs ->
+            prefs[KEY_TEST_MODE_START_MS] = startEpochMs
         }
     }
 
@@ -104,6 +116,7 @@ class ScheduleRepository(private val context: Context) {
         private val KEY_SCHEDULE_JSON = stringPreferencesKey("schedule_json")
         private val KEY_SELECTED_CLASS = stringPreferencesKey("selected_class")
         private val KEY_LIVE_UPDATES_ENABLED = booleanPreferencesKey("live_updates_enabled")
+        private val KEY_TEST_MODE_START_MS = longPreferencesKey("test_mode_start_ms")
         private val KEY_LAST_SYNC_MS = longPreferencesKey("last_sync_epoch_ms")
     }
 }

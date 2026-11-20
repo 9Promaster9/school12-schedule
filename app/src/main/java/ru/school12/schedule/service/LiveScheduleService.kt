@@ -35,13 +35,18 @@ class LiveScheduleService : Service() {
             val enabled = repository.isLiveUpdatesEnabled()
             val payload = repository.getCachedSchedule()
             val selectedClass = repository.getSelectedClass()
+            val testModeStartMs = repository.getTestModeStartMs()
 
             if (!enabled) {
                 stopAndClear()
                 return@launch
             }
 
-            val status = ScheduleEngine.computeStatus(payload, selectedClass)
+            val status = ScheduleEngine.computeStatus(
+                payload = payload,
+                selectedClass = selectedClass,
+                testModeStartMs = testModeStartMs,
+            )
             val notification = LiveUpdateManager.buildNotification(
                 context = applicationContext,
                 status = status,
@@ -49,7 +54,12 @@ class LiveScheduleService : Service() {
             )
 
             if (notification == null) {
-                ScheduleAlarmScheduler.scheduleNextTick(applicationContext, payload, selectedClass)
+                ScheduleAlarmScheduler.scheduleNextTick(
+                    context = applicationContext,
+                    payload = payload,
+                    selectedClass = selectedClass,
+                    testModeStartMs = testModeStartMs,
+                )
                 stopAndClear()
                 return@launch
             }
@@ -65,7 +75,12 @@ class LiveScheduleService : Service() {
                 startForeground(LiveUpdateManager.NOTIFICATION_ID, notification)
             }
 
-            ScheduleAlarmScheduler.scheduleNextTick(applicationContext, payload, selectedClass)
+            ScheduleAlarmScheduler.scheduleNextTick(
+                context = applicationContext,
+                payload = payload,
+                selectedClass = selectedClass,
+                testModeStartMs = testModeStartMs,
+            )
         }
 
         return START_NOT_STICKY

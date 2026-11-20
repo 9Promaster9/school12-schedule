@@ -15,9 +15,14 @@ object ScheduleAlarmScheduler {
         context: Context,
         payload: SchedulePayload?,
         selectedClass: String,
+        testModeStartMs: Long = 0L,
     ) {
         val alarmManager = context.getSystemService(AlarmManager::class.java) ?: return
-        val nextTime = ScheduleEngine.nextAlarmTriggerTime(payload, selectedClass) ?: return
+        val nextTime = ScheduleEngine.nextAlarmTriggerTime(
+            payload = payload,
+            selectedClass = selectedClass,
+            testModeStartMs = testModeStartMs,
+        ) ?: return
         val triggerAtMillis = nextTime.toInstant().toEpochMilli()
 
         val pendingIntent = buildPendingIntent(context)

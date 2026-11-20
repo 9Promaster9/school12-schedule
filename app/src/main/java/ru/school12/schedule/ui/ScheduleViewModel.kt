@@ -33,6 +33,7 @@ data class ScheduleUiState(
     val fallbackLatestSchedule: ResolvedDaySchedule? = null,
     val status: ScheduleStatus = ScheduleStatus.NoData,
     val liveUpdatesEnabled: Boolean = true,
+    val isTestMode: Boolean = false,
     val updatedAt: String = "",
     val isRefreshing: Boolean = false,
     val errorMessage: String? = null,
@@ -54,7 +55,7 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
     private val tickerFlow = flow {
         while (true) {
             emit(ScheduleEngine.nowSchool())
-            delay(15_000L)
+            delay(1_000L)
         }
     }
 
@@ -62,6 +63,7 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
         val payload: SchedulePayload?,
         val selectedClass: String,
         val liveEnabled: Boolean,
+        val testModeStartMs: Long,
         val manualTab: DayTab?,
     )
 
@@ -69,9 +71,10 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
         repository.scheduleFlow,
         repository.selectedClassFlow,
         repository.liveUpdatesEnabledFlow,
+        repository.testModeStartMsFlow,
         manualTabOverride,
-    ) { payload, selectedClass, liveEnabled, manualTab ->
-        CoreInputs(payload, selectedClass, liveEnabled, manualTab)
+    ) { payload, selectedClass, liveEnabled, testModeStartMs, manualTab ->
+        CoreInputs(payload, selectedClass, liveEnabled, testModeStartMs, manualTab)
     }
 
     val uiState: StateFlow<ScheduleUiState> = combine(
@@ -80,8 +83,13 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
         isRefreshing,
         errorMessage,
     ) { core, now, refreshing, error ->
+        val isTest = core.testModeStartMs > 0L
         val today = now.toLocalDate()
-        val todaySchedule = ScheduleEngine.lessonsForDate(core.payload, today, core.selectedClass)
+        val todaySchedule = if (isTest) {
+            ScheduleEngine.buildTestDaySchedule(core.payload, core.selectedClass, core.testModeStartMs, now)
+        } else {
+            ScheduleEngine.lessonsForDate(core.payload, today, core.selectedClass)
+        }
         val tomorrowSchedule = ScheduleEngine.nextAvailableDay(core.payload, today, core.selectedClass)
         val fallbackLatest = if (todaySchedule == null && tomorrowSchedule == null) {
             ScheduleEngine.latestAvailableDay(core.payload, core.selectedClass)
@@ -89,9 +97,18 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
             null
         }
 
-        val smartTab = ScheduleEngine.smartDefaultTab(core.payload, core.selectedClass, now)
+        val smartTab = if (isTest) {
+            DayTab.TODAY
+        } else {
+            ScheduleEngine.smartDefaultTab(core.payload, core.selectedClass, now)
+        }
         val activeTab = core.manualTab ?: smartTab
-        val status = ScheduleEngine.computeStatus(core.payload, core.selectedClass, now)
+        val status = ScheduleEngine.computeStatus(
+            payload = core.payload,
+            selectedClass = core.selectedClass,
+            now = now,
+            testModeStartMs = core.testModeStartMs,
+        )
 
         ScheduleUiState(
             selectedClass = core.selectedClass,
@@ -102,6 +119,7 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
             fallbackLatestSchedule = fallbackLatest,
             status = status,
             liveUpdatesEnabled = core.liveEnabled,
+            isTestMode = isTest,
             updatedAt = core.payload?.updatedAt.orEmpty(),
             isRefreshing = refreshing,
             errorMessage = error,
@@ -135,6 +153,23 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
+    fun setTestModeEnabled(enabled: Boolean) {
+        viewModelScope.launch {
+            val startMs = if (enabled) System.currentTimeMillis() else 0L
+            repository.setTestModeStartMs(startMs)
+            manualTabOverride.value = if (enabled) DayTab.TODAY else null
+            syncBackgroundServices()
+        }
+    }
+
+    fun restartTestMode() {
+        viewModelScope.launch {
+            repository.setTestModeStartMs(System.currentTimeMillis())
+            manualTabOverride.value = DayTab.TODAY
+            syncBackgroundServices()
+        }
+    }
+
     fun refreshSchedule() {
         if (isRefreshing.value) return
         viewModelScope.launch {
@@ -155,14 +190,19 @@ class ScheduleViewModel(application: Application) : AndroidViewModel(application
             val payload = repository.getCachedSchedule()
             val selectedClass = repository.getSelectedClass()
             val liveEnabled = repository.isLiveUpdatesEnabled()
-            val status = ScheduleEngine.computeStatus(payload, selectedClass)
+            val testModeStartMs = repository.getTestModeStartMs()
+            val status = ScheduleEngine.computeStatus(
+                payload = payload,
+                selectedClass = selectedClass,
+                testModeStartMs = testModeStartMs,
+            )
 
             LiveScheduleService.sync(
                 ctx,
                 liveEnabled && LiveUpdateManager.shouldShowLiveUpdate(status),
             )
             ScheduleGlanceWidget().updateAll(ctx)
-            ScheduleAlarmScheduler.scheduleNextTick(ctx, payload, selectedClass)
+            ScheduleAlarmScheduler.scheduleNextTick(ctx, payload, selectedClass, testModeStartMs)
         }
     }
 }

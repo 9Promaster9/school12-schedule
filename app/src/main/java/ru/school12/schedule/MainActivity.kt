@@ -63,6 +63,8 @@ class MainActivity : ComponentActivity() {
                     onSelectTab = viewModel::selectTab,
                     onSelectClass = viewModel::selectClass,
                     onToggleLiveUpdates = viewModel::setLiveUpdatesEnabled,
+                    onToggleTestMode = viewModel::setTestModeEnabled,
+                    onRestartTestMode = viewModel::restartTestMode,
                     onRefresh = viewModel::refreshSchedule,
                 )
             }

@@ -28,14 +28,24 @@ class ScheduleSyncWorker(
         val payload = result.getOrNull() ?: repository.getCachedSchedule()
         val selectedClass = repository.getSelectedClass()
         val liveEnabled = repository.isLiveUpdatesEnabled()
+        val testModeStartMs = repository.getTestModeStartMs()
 
-        val status = ScheduleEngine.computeStatus(payload, selectedClass)
+        val status = ScheduleEngine.computeStatus(
+            payload = payload,
+            selectedClass = selectedClass,
+            testModeStartMs = testModeStartMs,
+        )
         LiveScheduleService.sync(
             applicationContext,
             liveEnabled && LiveUpdateManager.shouldShowLiveUpdate(status),
         )
         ScheduleGlanceWidget().updateAll(applicationContext)
-        ScheduleAlarmScheduler.scheduleNextTick(applicationContext, payload, selectedClass)
+        ScheduleAlarmScheduler.scheduleNextTick(
+            applicationContext,
+            payload,
+            selectedClass,
+            testModeStartMs,
+        )
 
         return if (result.isSuccess) Result.success() else Result.retry()
     }

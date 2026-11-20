@@ -20,13 +20,16 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Alarm
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.NotificationsActive
+import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material.icons.rounded.School
+import androidx.compose.material.icons.rounded.Science
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -57,6 +60,7 @@ import androidx.compose.ui.unit.dp
 import ru.school12.schedule.model.DayTab
 import ru.school12.schedule.model.Lesson
 import ru.school12.schedule.model.ScheduleStatus
+import ru.school12.schedule.model.formatRemainingLabel
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -74,6 +78,8 @@ fun ScheduleScreen(
     onSelectTab: (DayTab) -> Unit,
     onSelectClass: (String) -> Unit,
     onToggleLiveUpdates: (Boolean) -> Unit,
+    onToggleTestMode: (Boolean) -> Unit,
+    onRestartTestMode: () -> Unit,
     onRefresh: () -> Unit,
 ) {
     var showClassPicker by remember { mutableStateOf(false) }
@@ -175,6 +181,14 @@ fun ScheduleScreen(
                 )
             }
 
+            item(key = "test_mode") {
+                TestModeCard(
+                    isTestMode = state.isTestMode,
+                    onToggleTestMode = onToggleTestMode,
+                    onRestartTestMode = onRestartTestMode,
+                )
+            }
+
             item(key = "day_tabs") {
                 DaySwitcher(
                     activeTab = state.activeTab,
@@ -204,7 +218,7 @@ fun ScheduleScreen(
 
                 items(
                     items = schedule.lessons,
-                    key = { "${schedule.date}_${it.number}_${it.subject}" },
+                    key = { "${schedule.date}_${it.number}_${it.subject}_${it.startTime}" },
                 ) { lesson ->
                     LessonCard(
                         lesson = lesson,
@@ -279,6 +293,90 @@ fun ScheduleScreen(
                             showClassPicker = false
                         },
                     )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun TestModeCard(
+    isTestMode: Boolean,
+    onToggleTestMode: (Boolean) -> Unit,
+    onRestartTestMode: () -> Unit,
+) {
+    OutlinedCard(
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.outlinedCardColors(
+            containerColor = if (isTestMode) {
+                MaterialTheme.colorScheme.tertiaryContainer
+            } else {
+                MaterialTheme.colorScheme.surface
+            },
+        ),
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.Science,
+                        contentDescription = null,
+                        tint = if (isTestMode) {
+                            MaterialTheme.colorScheme.onTertiaryContainer
+                        } else {
+                            MaterialTheme.colorScheme.primary
+                        },
+                        modifier = Modifier.size(20.dp),
+                    )
+                    Spacer(modifier = Modifier.width(10.dp))
+                    Column {
+                        Text(
+                            text = "Тестовый режим",
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = FontWeight.SemiBold,
+                            color = if (isTestMode) {
+                                MaterialTheme.colorScheme.onTertiaryContainer
+                            } else {
+                                MaterialTheme.colorScheme.onSurface
+                            },
+                        )
+                        Text(
+                            text = "3 урока по 20 сек · перемены по 10 сек",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = if (isTestMode) {
+                                MaterialTheme.colorScheme.onTertiaryContainer
+                            } else {
+                                MaterialTheme.colorScheme.onSurfaceVariant
+                            },
+                        )
+                    }
+                }
+                Switch(
+                    checked = isTestMode,
+                    onCheckedChange = onToggleTestMode,
+                )
+            }
+            if (isTestMode) {
+                Spacer(modifier = Modifier.height(8.dp))
+                FilledTonalButton(
+                    onClick = onRestartTestMode,
+                    contentPadding = PaddingValues(horizontal = 14.dp, vertical = 6.dp),
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.PlayArrow,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp),
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text("Запустить цикл заново")
                 }
             }
         }
@@ -392,6 +490,7 @@ private fun LiveStatusCard(
             when (status) {
                 is ScheduleStatus.InLesson -> {
                     val room = status.currentLesson.room.takeIf { it.isNotBlank() }?.let { " · каб. $it" }.orEmpty()
+                    val remain = formatRemainingLabel(status.minutesRemaining, status.secondsRemaining)
                     Text(
                         text = "${status.currentLesson.subject}$room",
                         style = MaterialTheme.typography.headlineSmall,
@@ -400,7 +499,7 @@ private fun LiveStatusCard(
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "${status.currentLesson.startTime} – ${status.currentLesson.endTime} · осталось ${status.minutesRemaining} мин",
+                        text = "${status.currentLesson.startTime} – ${status.currentLesson.endTime} · осталось $remain",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                     )
@@ -425,6 +524,7 @@ private fun LiveStatusCard(
 
                 is ScheduleStatus.InBreak -> {
                     val nr = status.nextLesson.room.takeIf { it.isNotBlank() }?.let { ", каб. $it" }.orEmpty()
+                    val remain = formatRemainingLabel(status.minutesRemaining, status.secondsRemaining)
                     Text(
                         text = "Следующий: ${status.nextLesson.subject}$nr",
                         style = MaterialTheme.typography.titleLarge,
@@ -433,7 +533,7 @@ private fun LiveStatusCard(
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "До звонка ${status.minutesRemaining} мин (в ${status.nextLesson.startTime})",
+                        text = "До звонка $remain (в ${status.nextLesson.startTime})",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                     )

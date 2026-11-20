@@ -23,13 +23,18 @@ class ScheduleAlarmReceiver : BroadcastReceiver() {
                 val payload = repo.getCachedSchedule()
                 val selectedClass = repo.getSelectedClass()
                 val liveEnabled = repo.isLiveUpdatesEnabled()
+                val testModeStartMs = repo.getTestModeStartMs()
 
-                val status = ScheduleEngine.computeStatus(payload, selectedClass)
+                val status = ScheduleEngine.computeStatus(
+                    payload = payload,
+                    selectedClass = selectedClass,
+                    testModeStartMs = testModeStartMs,
+                )
                 val shouldShow = liveEnabled && LiveUpdateManager.shouldShowLiveUpdate(status)
 
                 LiveScheduleService.sync(context, shouldShow)
                 ScheduleGlanceWidget().updateAll(context)
-                ScheduleAlarmScheduler.scheduleNextTick(context, payload, selectedClass)
+                ScheduleAlarmScheduler.scheduleNextTick(context, payload, selectedClass, testModeStartMs)
             } finally {
                 pendingResult.finish()
             }

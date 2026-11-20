@@ -39,6 +39,7 @@ import ru.school12.schedule.alarm.ScheduleAlarmScheduler
 import ru.school12.schedule.data.ScheduleRepository
 import ru.school12.schedule.domain.ScheduleEngine
 import ru.school12.schedule.model.ScheduleStatus
+import ru.school12.schedule.model.formatRemainingLabel
 import ru.school12.schedule.ui.theme.FallbackDarkColorScheme
 import ru.school12.schedule.ui.theme.FallbackLightColorScheme
 
@@ -52,7 +53,12 @@ class ScheduleGlanceWidget : GlanceAppWidget() {
         val repository = ScheduleRepository(context)
         val payload = repository.getCachedSchedule()
         val selectedClass = repository.getSelectedClass()
-        val status = ScheduleEngine.computeStatus(payload, selectedClass)
+        val testModeStartMs = repository.getTestModeStartMs()
+        val status = ScheduleEngine.computeStatus(
+            payload = payload,
+            selectedClass = selectedClass,
+            testModeStartMs = testModeStartMs,
+        )
 
         provideContent {
             val colors = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -68,7 +74,10 @@ class ScheduleGlanceWidget : GlanceAppWidget() {
             }
 
             GlanceTheme(colors = colors) {
-                WidgetCard(selectedClass = selectedClass, status = status)
+                WidgetCard(
+                    selectedClass = if (testModeStartMs > 0L) "$selectedClass · ТЕСТ" else selectedClass,
+                    status = status,
+                )
             }
         }
     }
@@ -122,6 +131,7 @@ private fun WidgetCard(
                     .takeIf { it.isNotBlank() }
                     ?.let { "Каб. $it" }
                     ?: "Идёт урок"
+                val remain = formatRemainingLabel(status.minutesRemaining, status.secondsRemaining)
                 Text(
                     text = "${status.currentLesson.number}. ${status.currentLesson.subject}",
                     style = TextStyle(
@@ -147,7 +157,7 @@ private fun WidgetCard(
                     )
                     Spacer(modifier = GlanceModifier.width(8.dp))
                     Text(
-                        text = "до ${status.currentLesson.endTime} (${status.minutesRemaining} мин)",
+                        text = "до ${status.currentLesson.endTime} ($remain)",
                         style = TextStyle(
                             color = GlanceTheme.colors.onSurfaceVariant,
                             fontSize = 13.sp,
@@ -170,8 +180,9 @@ private fun WidgetCard(
             }
 
             is ScheduleStatus.InBreak -> {
+                val remain = formatRemainingLabel(status.minutesRemaining, status.secondsRemaining)
                 Text(
-                    text = "Перемена (${status.minutesRemaining} мин)",
+                    text = "Перемена ($remain)",
                     style = TextStyle(
                         color = GlanceTheme.colors.tertiary,
                         fontSize = 16.sp,
@@ -299,7 +310,8 @@ class RefreshWidgetAction : ActionCallback {
         val repository = ScheduleRepository(context)
         val payload = repository.refreshFromRemote().getOrNull() ?: repository.getCachedSchedule()
         val selectedClass = repository.getSelectedClass()
+        val testModeStartMs = repository.getTestModeStartMs()
         ScheduleGlanceWidget().updateAll(context)
-        ScheduleAlarmScheduler.scheduleNextTick(context, payload, selectedClass)
+        ScheduleAlarmScheduler.scheduleNextTick(context, payload, selectedClass, testModeStartMs)
     }
 }
