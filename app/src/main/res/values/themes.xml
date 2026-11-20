@@ -1,0 +1,3 @@
+<resources>
+    <style name="Theme.School12Schedule" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
