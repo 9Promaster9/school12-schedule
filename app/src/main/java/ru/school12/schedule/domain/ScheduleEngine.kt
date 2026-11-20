@@ -360,9 +360,9 @@ object ScheduleEngine {
                 lessonEndTime(today, lesson)?.let { boundaries.add(it) }
             }
             val nextBoundary = boundaries
-                .filter { it.isAfter(now.plusMillis(200L)) }
+                .filter { it.isAfter(now.plusNanos(200_000_000L)) }
                 .minOrNull()
-            if (nextBoundary != null) return nextBoundary.plusMillis(150L)
+            if (nextBoundary != null) return nextBoundary.plusNanos(150_000_000L)
         }
 
         val nextSchedule = nextAvailableDay(payload, today, selectedClass)
