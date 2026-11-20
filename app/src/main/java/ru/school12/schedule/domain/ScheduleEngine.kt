@@ -212,7 +212,8 @@ object ScheduleEngine {
             if (!now.isBefore(start) && now.isBefore(end)) {
                 val totalMs = Duration.between(start, end).toMillis().coerceAtLeast(1L)
                 val elapsedMs = Duration.between(start, now).toMillis().coerceIn(0L, totalMs)
-                val progress = ((elapsedMs * 100L) / totalMs).toInt().coerceIn(0, 100)
+                val fraction = (elapsedMs.toFloat() / totalMs.toFloat()).coerceIn(0f, 1f)
+                val progress = (fraction * 100f).toInt().coerceIn(0, 100)
                 val secsLeft = ((totalMs - elapsedMs + 999L) / 1_000L).coerceAtLeast(0L)
                 val minsLeft = (secsLeft / 60L).coerceAtLeast(0L)
                 return ScheduleStatus.InLesson(
@@ -221,6 +222,7 @@ object ScheduleEngine {
                     startEpochMillis = start.toInstant().toEpochMilli(),
                     endEpochMillis = end.toInstant().toEpochMilli(),
                     progressPercent = progress,
+                    progressFraction = fraction,
                     minutesRemaining = minsLeft,
                     secondsRemaining = secsLeft,
                 )
@@ -231,7 +233,8 @@ object ScheduleEngine {
                 if (!now.isBefore(end) && now.isBefore(upcomingStart)) {
                     val totalMs = Duration.between(end, upcomingStart).toMillis().coerceAtLeast(1L)
                     val elapsedMs = Duration.between(end, now).toMillis().coerceIn(0L, totalMs)
-                    val progress = ((elapsedMs * 100L) / totalMs).toInt().coerceIn(0, 100)
+                    val fraction = (elapsedMs.toFloat() / totalMs.toFloat()).coerceIn(0f, 1f)
+                    val progress = (fraction * 100f).toInt().coerceIn(0, 100)
                     val secsLeft = ((totalMs - elapsedMs + 999L) / 1_000L).coerceAtLeast(0L)
                     val minsLeft = (secsLeft / 60L).coerceAtLeast(0L)
                     return ScheduleStatus.InBreak(
@@ -240,6 +243,7 @@ object ScheduleEngine {
                         startEpochMillis = end.toInstant().toEpochMilli(),
                         endEpochMillis = upcomingStart.toInstant().toEpochMilli(),
                         progressPercent = progress,
+                        progressFraction = fraction,
                         minutesRemaining = minsLeft,
                         secondsRemaining = secsLeft,
                     )
@@ -280,7 +284,8 @@ object ScheduleEngine {
 
             if (nowMs in lessonStart until lessonEnd) {
                 val elapsed = (nowMs - lessonStart).coerceIn(0L, TEST_LESSON_MS)
-                val progress = ((elapsed * 100L) / TEST_LESSON_MS).toInt().coerceIn(0, 100)
+                val fraction = (elapsed.toFloat() / TEST_LESSON_MS.toFloat()).coerceIn(0f, 1f)
+                val progress = (fraction * 100f).toInt().coerceIn(0, 100)
                 val secsLeft = ((lessonEnd - nowMs + 999L) / 1_000L).coerceAtLeast(0L)
                 return ScheduleStatus.InLesson(
                     currentLesson = lessons[i],
@@ -288,6 +293,7 @@ object ScheduleEngine {
                     startEpochMillis = lessonStart,
                     endEpochMillis = lessonEnd,
                     progressPercent = progress,
+                    progressFraction = fraction,
                     minutesRemaining = secsLeft / 60L,
                     secondsRemaining = secsLeft,
                 )
@@ -295,7 +301,8 @@ object ScheduleEngine {
 
             if (i + 1 < lessons.size && nowMs in lessonEnd until breakEnd) {
                 val elapsed = (nowMs - lessonEnd).coerceIn(0L, TEST_BREAK_MS)
-                val progress = ((elapsed * 100L) / TEST_BREAK_MS).toInt().coerceIn(0, 100)
+                val fraction = (elapsed.toFloat() / TEST_BREAK_MS.toFloat()).coerceIn(0f, 1f)
+                val progress = (fraction * 100f).toInt().coerceIn(0, 100)
                 val secsLeft = ((breakEnd - nowMs + 999L) / 1_000L).coerceAtLeast(0L)
                 return ScheduleStatus.InBreak(
                     previousLesson = lessons[i],
@@ -303,6 +310,7 @@ object ScheduleEngine {
                     startEpochMillis = lessonEnd,
                     endEpochMillis = breakEnd,
                     progressPercent = progress,
+                    progressFraction = fraction,
                     minutesRemaining = secsLeft / 60L,
                     secondsRemaining = secsLeft,
                 )
@@ -331,9 +339,9 @@ object ScheduleEngine {
                 boundaries.add(start)
                 boundaries.add(start + TEST_LESSON_MS)
             }
-            val nextMs = boundaries.firstOrNull { it > nowMs + 500L }
+            val nextMs = boundaries.firstOrNull { it > nowMs + 100L }
             if (nextMs != null) {
-                return ZonedDateTime.ofInstant(Instant.ofEpochMilli(nextMs), SCHOOL_ZONE)
+                return ZonedDateTime.ofInstant(Instant.ofEpochMilli(nextMs + 150L), SCHOOL_ZONE)
             }
         }
 
@@ -352,9 +360,9 @@ object ScheduleEngine {
                 lessonEndTime(today, lesson)?.let { boundaries.add(it) }
             }
             val nextBoundary = boundaries
-                .filter { it.isAfter(now.plusSeconds(2)) }
+                .filter { it.isAfter(now.plusMillis(200L)) }
                 .minOrNull()
-            if (nextBoundary != null) return nextBoundary
+            if (nextBoundary != null) return nextBoundary.plusMillis(150L)
         }
 
         val nextSchedule = nextAvailableDay(payload, today, selectedClass)

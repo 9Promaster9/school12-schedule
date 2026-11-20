@@ -19,6 +19,7 @@ object LiveUpdateManager {
     const val CHANNEL_ID = "school12_live_schedule_updates"
     const val NOTIFICATION_ID = 1201
 
+    private const val PROGRESS_MAX = 1000
     private const val EXTRA_REQUEST_PROMOTED_ONGOING = "android.requestPromotedOngoing"
 
     fun ensureChannel(context: Context) {
@@ -74,6 +75,11 @@ object LiveUpdateManager {
         }
     }
 
+    fun post(context: Context, notification: Notification) {
+        val manager = context.getSystemService(NotificationManager::class.java) ?: return
+        manager.notify(NOTIFICATION_ID, notification)
+    }
+
     fun cancel(context: Context) {
         val manager = context.getSystemService(NotificationManager::class.java) ?: return
         manager.cancel(NOTIFICATION_ID)
@@ -86,10 +92,10 @@ object LiveUpdateManager {
         contentIntent: PendingIntent,
     ): Notification {
         val progressStyle = Notification.ProgressStyle()
-            .setProgress(content.progressPercent.coerceIn(0, 100))
+            .setProgress(content.progressPermille.coerceIn(0, PROGRESS_MAX))
             .setStyledByProgress(true)
             .addProgressSegment(
-                Notification.ProgressStyle.Segment(100)
+                Notification.ProgressStyle.Segment(PROGRESS_MAX)
                     .setColor(content.accentColor)
             )
 
@@ -137,7 +143,7 @@ object LiveUpdateManager {
             .setShowWhen(true)
             .setUsesChronometer(true)
             .setChronometerCountDown(true)
-            .setProgress(100, content.progressPercent.coerceIn(0, 100), false)
+            .setProgress(PROGRESS_MAX, content.progressPermille.coerceIn(0, PROGRESS_MAX), false)
             .build()
     }
 
@@ -166,7 +172,7 @@ object LiveUpdateManager {
                 subtitle = "$nextPart · до ${status.currentLesson.endTime}",
                 subText = selectedClass,
                 shortChipText = chip.take(12),
-                progressPercent = status.progressPercent,
+                progressPermille = (status.progressFraction * PROGRESS_MAX).toInt().coerceIn(0, PROGRESS_MAX),
                 targetEpochMillis = status.endEpochMillis,
                 accentColor = Color.parseColor("#1B6EF3"),
             )
@@ -182,7 +188,7 @@ object LiveUpdateManager {
                 subtitle = "${status.nextLesson.number}-й урок в ${status.nextLesson.startTime}",
                 subText = selectedClass,
                 shortChipText = "Перемена",
-                progressPercent = status.progressPercent,
+                progressPermille = (status.progressFraction * PROGRESS_MAX).toInt().coerceIn(0, PROGRESS_MAX),
                 targetEpochMillis = status.endEpochMillis,
                 accentColor = Color.parseColor("#0F9D58"),
             )
@@ -198,7 +204,7 @@ object LiveUpdateManager {
                 subtitle = "Начало в ${status.firstLesson.startTime}",
                 subText = selectedClass,
                 shortChipText = status.firstLesson.startTime,
-                progressPercent = 0,
+                progressPermille = 0,
                 targetEpochMillis = status.startEpochMillis,
                 accentColor = Color.parseColor("#F57C00"),
             )
@@ -213,7 +219,7 @@ object LiveUpdateManager {
         val subtitle: String,
         val subText: String,
         val shortChipText: String,
-        val progressPercent: Int,
+        val progressPermille: Int,
         val targetEpochMillis: Long,
         val accentColor: Int,
     )

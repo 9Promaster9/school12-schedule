@@ -1,5 +1,8 @@
 package ru.school12.schedule.ui
 
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -445,6 +448,17 @@ private fun LiveStatusCard(
     liveUpdatesEnabled: Boolean,
     onToggleLiveUpdates: (Boolean) -> Unit,
 ) {
+    val targetProgress = when (status) {
+        is ScheduleStatus.InLesson -> status.progressFraction
+        is ScheduleStatus.InBreak -> status.progressFraction
+        else -> 0f
+    }
+    val smoothProgress by animateFloatAsState(
+        targetValue = targetProgress,
+        animationSpec = tween(durationMillis = 900, easing = LinearEasing),
+        label = "lesson_progress",
+    )
+
     ElevatedCard(
         shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.elevatedCardColors(
@@ -505,7 +519,7 @@ private fun LiveStatusCard(
                     )
                     Spacer(modifier = Modifier.height(12.dp))
                     LinearProgressIndicator(
-                        progress = { status.progressPercent / 100f },
+                        progress = { smoothProgress },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(8.dp)
@@ -539,7 +553,7 @@ private fun LiveStatusCard(
                     )
                     Spacer(modifier = Modifier.height(12.dp))
                     LinearProgressIndicator(
-                        progress = { status.progressPercent / 100f },
+                        progress = { smoothProgress },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(8.dp)

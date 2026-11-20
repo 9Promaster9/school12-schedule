@@ -48,6 +48,7 @@ sealed interface ScheduleStatus {
         val startEpochMillis: Long,
         val endEpochMillis: Long,
         val progressPercent: Int,
+        val progressFraction: Float = progressPercent / 100f,
         val minutesRemaining: Long,
         val secondsRemaining: Long = minutesRemaining * 60L,
     ) : ScheduleStatus
@@ -58,6 +59,7 @@ sealed interface ScheduleStatus {
         val startEpochMillis: Long,
         val endEpochMillis: Long,
         val progressPercent: Int,
+        val progressFraction: Float = progressPercent / 100f,
         val minutesRemaining: Long,
         val secondsRemaining: Long = minutesRemaining * 60L,
     ) : ScheduleStatus
