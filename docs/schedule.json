@@ -1,7 +1,7 @@
 {
   "school": "МОУ СОШ №12 им. В.Ф. Суханова",
   "timezone": "Europe/Saratov",
-  "updatedAt": "2026-11-28T00:50:08+04:00",
+  "updatedAt": "2026-11-28T15:27:26+04:00",
   "defaultClass": "11б (ТЕХ)",
   "bells": {
     "1": {
@@ -38,14 +38,14 @@
     }
   },
   "days": {
-    "2026-11-26": {
-      "dayOfWeek": "Четверг",
-      "sourceUrl": "https://nsportal.ru/sites/default/files/2026/11/25/raspisanie_na_chetverg_26.11_1.pdf",
+    "2026-11-30": {
+      "dayOfWeek": "Понедельник",
+      "sourceUrl": "https://nsportal.ru/sites/default/files/2026/11/28/raspisanie_na_ponedelnik_30.11.pdf",
       "classes": {
         "5а": [
           {
             "number": 1,
-            "subject": "Русский язык",
+            "subject": "Разговоры о важном",
             "teacher": "",
             "room": "409",
             "startTime": "08:00",
@@ -53,115 +53,115 @@
           },
           {
             "number": 2,
-            "subject": "Труд (технология)",
+            "subject": "Литература",
             "teacher": "",
-            "room": "309",
+            "room": "409",
             "startTime": "08:50",
             "endTime": "09:30"
           },
           {
             "number": 3,
-            "subject": "Математика",
+            "subject": "Русский язык",
             "teacher": "",
-            "room": "304",
+            "room": "409",
             "startTime": "09:45",
             "endTime": "10:25"
           },
           {
             "number": 4,
-            "subject": "Проектно- исследовательская деятельность",
+            "subject": "История",
             "teacher": "",
-            "room": "300",
+            "room": "412",
             "startTime": "10:40",
             "endTime": "11:20"
           },
           {
             "number": 5,
-            "subject": "Труд (технология)",
+            "subject": "Английский язык нет/209",
             "teacher": "",
-            "room": "409",
+            "room": "",
             "startTime": "11:35",
             "endTime": "12:15"
+          },
+          {
+            "number": 6,
+            "subject": "Математика",
+            "teacher": "",
+            "room": "304",
+            "startTime": "12:30",
+            "endTime": "13:10"
           }
         ],
         "5б": [
           {
             "number": 1,
-            "subject": "Литература",
+            "subject": "Разговоры о важном",
             "teacher": "",
-            "room": "407",
+            "room": "412",
             "startTime": "08:00",
             "endTime": "08:40"
           },
           {
             "number": 2,
-            "subject": "Математика",
+            "subject": "Русский язык",
             "teacher": "",
-            "room": "304",
+            "room": "407",
             "startTime": "08:50",
             "endTime": "09:30"
           },
           {
             "number": 3,
-            "subject": "История",
+            "subject": "Литература",
             "teacher": "",
-            "room": "412",
+            "room": "407",
             "startTime": "09:45",
             "endTime": "10:25"
           },
           {
             "number": 4,
-            "subject": "Русский язык 4007",
+            "subject": "Математика",
             "teacher": "",
-            "room": "",
+            "room": "304",
             "startTime": "10:40",
             "endTime": "11:20"
           },
           {
             "number": 5,
-            "subject": "Английский язык",
+            "subject": "История",
             "teacher": "",
-            "room": "222/405",
+            "room": "412",
             "startTime": "11:35",
             "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Проектно- исследовательская деятельность",
-            "teacher": "",
-            "room": "300",
-            "startTime": "12:30",
-            "endTime": "13:10"
           }
         ],
         "5в": [
           {
             "number": 1,
-            "subject": "Математика",
+            "subject": "Разговоры о важном",
             "teacher": "",
-            "room": "307",
+            "room": "411",
             "startTime": "08:00",
             "endTime": "08:40"
           },
           {
             "number": 2,
-            "subject": "Проектно- исследовательская деятельность",
+            "subject": "Математика",
             "teacher": "",
-            "room": "300",
+            "room": "307",
             "startTime": "08:50",
             "endTime": "09:30"
           },
           {
             "number": 3,
-            "subject": "История",
+            "subject": "География",
             "teacher": "",
-            "room": "411",
+            "room": "303",
             "startTime": "09:45",
             "endTime": "10:25"
           },
           {
             "number": 4,
-            "subject": "Литература",
+            "subject": "Русский язык",
             "teacher": "",
             "room": "409",
             "startTime": "10:40",
@@ -169,17 +169,17 @@
           },
           {
             "number": 5,
-            "subject": "Русский язык",
+            "subject": "Биология",
             "teacher": "",
-            "room": "409",
+            "room": "300",
             "startTime": "11:35",
             "endTime": "12:15"
           },
           {
             "number": 6,
-            "subject": "Английский язык",
+            "subject": "Литература",
             "teacher": "",
-            "room": "403/405",
+            "room": "409",
             "startTime": "12:30",
             "endTime": "13:10"
           }
@@ -187,9 +187,9 @@
         "5г": [
           {
             "number": 1,
-            "subject": "Проектно- исследовательская деятельность",
+            "subject": "Разговоры о важном",
             "teacher": "",
-            "room": "300",
+            "room": "309",
             "startTime": "08:00",
             "endTime": "08:40"
           },
@@ -203,43 +203,51 @@
           },
           {
             "number": 3,
-            "subject": "Литература",
+            "subject": "Английский язык 309/нет",
             "teacher": "",
-            "room": "405",
+            "room": "",
             "startTime": "09:45",
             "endTime": "10:25"
           },
           {
             "number": 4,
-            "subject": "Математика",
+            "subject": "История",
             "teacher": "",
-            "room": "307",
+            "room": "411",
             "startTime": "10:40",
             "endTime": "11:20"
           },
           {
             "number": 5,
-            "subject": "История",
+            "subject": "Музыка",
             "teacher": "",
-            "room": "411",
+            "room": "21",
             "startTime": "11:35",
             "endTime": "12:15"
           },
           {
             "number": 6,
-            "subject": "Основы финансовой грамотности",
+            "subject": "Математика",
             "teacher": "",
-            "room": "412",
+            "room": "307",
             "startTime": "12:30",
             "endTime": "13:10"
           }
         ],
         "6а": [
           {
-            "number": 2,
-            "subject": "Английский язык",
+            "number": 1,
+            "subject": "Разговоры о важном",
             "teacher": "",
-            "room": "21/403",
+            "room": "307",
+            "startTime": "08:00",
+            "endTime": "08:40"
+          },
+          {
+            "number": 2,
+            "subject": "Биология",
+            "teacher": "",
+            "room": "308",
             "startTime": "08:50",
             "endTime": "09:30"
           },
@@ -253,9 +261,9 @@
           },
           {
             "number": 4,
-            "subject": "История",
+            "subject": "Английский язык 309/нет",
             "teacher": "",
-            "room": "412",
+            "room": "",
             "startTime": "10:40",
             "endTime": "11:20"
           },
@@ -269,19 +277,27 @@
           },
           {
             "number": 6,
-            "subject": "Литература",
+            "subject": "Физическая культура",
             "teacher": "",
-            "room": "404",
+            "room": "с/з",
             "startTime": "12:30",
             "endTime": "13:10"
+          },
+          {
+            "number": 7,
+            "subject": "Труд (технология)",
+            "teacher": "",
+            "room": "309",
+            "startTime": "13:20",
+            "endTime": "14:00"
           }
         ],
         "6б": [
           {
             "number": 1,
-            "subject": "История",
+            "subject": "Разговоры о важном",
             "teacher": "",
-            "room": "412",
+            "room": "306",
             "startTime": "08:00",
             "endTime": "08:40"
           },
@@ -295,25 +311,25 @@
           },
           {
             "number": 3,
-            "subject": "Труд (технология)",
+            "subject": "История",
             "teacher": "",
-            "room": "309",
+            "room": "412",
             "startTime": "09:45",
             "endTime": "10:25"
           },
           {
             "number": 4,
-            "subject": "Информационная безопасность",
+            "subject": "Русский язык",
             "teacher": "",
-            "room": "313",
+            "room": "404",
             "startTime": "10:40",
             "endTime": "11:20"
           },
           {
             "number": 5,
-            "subject": "Легкая атлетика",
+            "subject": "Английский язык 309/нет",
             "teacher": "",
-            "room": "с/з",
+            "room": "",
             "startTime": "11:35",
             "endTime": "12:15"
           },
@@ -329,49 +345,49 @@
         "6в": [
           {
             "number": 1,
-            "subject": "Легкая атлетика",
+            "subject": "Разговоры о важном",
             "teacher": "",
-            "room": "с/з",
+            "room": "313",
             "startTime": "08:00",
             "endTime": "08:40"
           },
           {
             "number": 2,
-            "subject": "Математика",
+            "subject": "Русский язык",
             "teacher": "",
-            "room": "307",
+            "room": "406",
             "startTime": "08:50",
             "endTime": "09:30"
           },
           {
             "number": 3,
-            "subject": "Изобразительное искусство",
+            "subject": "Литература",
             "teacher": "",
-            "room": "420",
+            "room": "406",
             "startTime": "09:45",
             "endTime": "10:25"
           },
           {
             "number": 4,
-            "subject": "Английский язык",
+            "subject": "Математика",
             "teacher": "",
-            "room": "309/404",
+            "room": "307",
             "startTime": "10:40",
             "endTime": "11:20"
           },
           {
             "number": 5,
-            "subject": "Русский язык",
+            "subject": "Информационная безопасность",
             "teacher": "",
-            "room": "406",
+            "room": "313",
             "startTime": "11:35",
             "endTime": "12:15"
           },
           {
             "number": 6,
-            "subject": "Русский язык",
+            "subject": "Труд (технология)",
             "teacher": "",
-            "room": "406",
+            "room": "309",
             "startTime": "12:30",
             "endTime": "13:10"
           }
@@ -379,7 +395,7 @@
         "6г": [
           {
             "number": 1,
-            "subject": "Математика",
+            "subject": "Разговоры о важном",
             "teacher": "",
             "room": "304",
             "startTime": "08:00",
@@ -387,1027 +403,33 @@
           },
           {
             "number": 2,
-            "subject": "История",
-            "teacher": "",
-            "room": "412",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "406/21",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "405",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "409",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Великие достижения соотечественников",
-            "teacher": "",
-            "room": "411",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "7б": [
-          {
-            "number": 2,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "308",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Изобразительное искусство",
-            "teacher": "",
-            "room": "420",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Труд (технология)",
-            "teacher": "",
-            "room": "420",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          }
-        ],
-        "7в": [
-          {
-            "number": 1,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "308",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "222/403",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Информатика",
-            "teacher": "",
-            "room": "312,213",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Вероятность и статистика",
-            "teacher": "",
-            "room": "308",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Музыка",
-            "teacher": "",
-            "room": "21",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "7г": [
-          {
-            "number": 1,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "409",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "История",
-            "teacher": "",
-            "room": "411",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Вероятность и статистика",
-            "teacher": "",
-            "room": "307",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "307",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "403/309",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "8а": [
-          {
-            "number": 1,
-            "subject": "Вероятность и статистика",
-            "teacher": "",
-            "room": "308",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "404",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "308",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Музыка",
-            "teacher": "",
-            "room": "21",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "История",
-            "teacher": "",
-            "room": "411",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "8б": [
-          {
-            "number": 2,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "409",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "304",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "История",
-            "teacher": "",
-            "room": "309",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "222/405",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Россия - мои горизонты",
-            "teacher": "",
-            "room": "410",
-            "startTime": "14:20",
-            "endTime": "15:00"
-          }
-        ],
-        "8в": [
-          {
-            "number": 1,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "История",
-            "teacher": "",
-            "room": "411",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Химия",
-            "teacher": "",
-            "room": "213",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "308",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Информатика",
-            "teacher": "",
-            "room": "312/313",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          }
-        ],
-        "8г": [
-          {
-            "number": 1,
-            "subject": "Труд (технология)",
-            "teacher": "",
-            "room": "420",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Химия",
-            "teacher": "",
-            "room": "213",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "316",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "304",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
             "subject": "Легкая атлетика",
             "teacher": "",
             "room": "с/з",
-            "startTime": "12:30",
-            "endTime": "13:10"
+            "startTime": "08:50",
+            "endTime": "09:30"
           },
           {
-            "number": 7,
+            "number": 3,
+            "subject": "Математика",
+            "teacher": "",
+            "room": "304",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
             "subject": "Информационная безопасность",
             "teacher": "",
             "room": "313",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Россия - мои горизонты",
-            "teacher": "",
-            "room": "403",
-            "startTime": "14:20",
-            "endTime": "15:00"
-          }
-        ],
-        "9а": [
-          {
-            "number": 1,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "306",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "407",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
             "startTime": "10:40",
             "endTime": "11:20"
           },
           {
             "number": 5,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "407",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Химия",
-            "teacher": "",
-            "room": "213",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "209",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "9б": [
-          {
-            "number": 2,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "209/222",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "306",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Вероятность и статистика",
-            "teacher": "",
-            "room": "306",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "История",
-            "teacher": "",
-            "room": "410",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Труд (технология)",
-            "teacher": "",
-            "room": "420",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "9в": [
-          {
-            "number": 1,
-            "subject": "Английский 403/(нет)",
-            "teacher": "",
-            "room": "",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "406",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "300",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "История",
-            "teacher": "",
-            "room": "213",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "306",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "406",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Английский (нет)/209",
-            "teacher": "",
-            "room": "",
-            "startTime": "14:20",
-            "endTime": "15:00"
-          }
-        ],
-        "9г": [
-          {
-            "number": 1,
-            "subject": "Проектно- исследовательская деятельность",
-            "teacher": "",
-            "room": "209",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "306",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "209/403",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "406",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Мероприятие",
-            "teacher": "",
-            "room": "",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Мероприятие",
-            "teacher": "",
-            "room": "",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "10а (ГУМ)": [
-          {
-            "number": 2,
-            "subject": "Информатика",
-            "teacher": "",
-            "room": "312",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "408",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "305",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "209",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "УК Актуальные вопросы истории России 20 века",
-            "teacher": "",
-            "room": "410",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          }
-        ],
-        "10а (ЕН)": [
-          {
-            "number": 2,
-            "subject": "Информатика",
-            "teacher": "",
-            "room": "312",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "408",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "305",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Избранные вопросы биологии",
-            "teacher": "",
-            "room": "300",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "209",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "300",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Современные агробиотехнологии",
-            "teacher": "",
-            "room": "300",
-            "startTime": "14:20",
-            "endTime": "15:00"
-          }
-        ],
-        "10б": [
-          {
-            "number": 1,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "305",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "305",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Информатика",
-            "teacher": "",
-            "room": "313,312",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "История",
-            "teacher": "",
-            "room": "410",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "408",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          }
-        ],
-        "11а": [
-          {
-            "number": 3,
-            "subject": "Обществознание",
-            "teacher": "",
-            "room": "410",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "209",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "305",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "408",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "История",
-            "teacher": "",
-            "room": "412",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "14:20",
-            "endTime": "15:00"
-          }
-        ],
-        "11б (ТЕХ)": [
-          {
-            "number": 1,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "316",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Информатика",
-            "teacher": "",
-            "room": "313",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "408",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Обществознание 412 Геометрия",
-            "teacher": "",
-            "room": "305",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "408",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "305",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "11б (ЕН)": [
-          {
-            "number": 1,
-            "subject": "Химия",
-            "teacher": "",
-            "room": "213",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "316",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "408",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Обществознание",
-            "teacher": "",
-            "room": "412",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "305",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Геометрия",
-            "teacher": "",
-            "room": "305",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "222",
-            "startTime": "14:20",
-            "endTime": "15:00"
-          }
-        ]
-      }
-    },
-    "2026-11-27": {
-      "dayOfWeek": "Пятница",
-      "sourceUrl": "https://nsportal.ru/sites/default/files/2026/11/26/raspisanie_na_pyatnitsu_27.11.pdf",
-      "classes": {
-        "5а": [
-          {
-            "number": 2,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
             "subject": "Литература",
             "teacher": "",
             "room": "409",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Математика",
-            "teacher": "",
-            "room": "304",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "История",
-            "teacher": "",
-            "room": "412",
             "startTime": "11:35",
             "endTime": "12:15"
           },
@@ -1415,349 +437,7 @@
             "number": 6,
             "subject": "Русский язык",
             "teacher": "",
-            "room": "409",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          }
-        ],
-        "5б": [
-          {
-            "number": 1,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "300",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Математика",
-            "teacher": "",
-            "room": "304",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Духовно-нравстенная культура России",
-            "teacher": "",
             "room": "412",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "407",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "История",
-            "teacher": "",
-            "room": "412",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Классный час",
-            "teacher": "",
-            "room": "412",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "5в": [
-          {
-            "number": 2,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Изобразительное искусство",
-            "teacher": "",
-            "room": "420",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "409",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Математика",
-            "teacher": "",
-            "room": "307",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          }
-        ],
-        "5г": [
-          {
-            "number": 1,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "405",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Математика",
-            "teacher": "",
-            "room": "307",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "405",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "300",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          }
-        ],
-        "6а": [
-          {
-            "number": 1,
-            "subject": "Математика",
-            "teacher": "",
-            "room": "307",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "309/403",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Музыка",
-            "teacher": "",
-            "room": "21",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "404",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "404",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Классный час",
-            "teacher": "",
-            "room": "307",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "6б": [
-          {
-            "number": 1,
-            "subject": "Музыка",
-            "teacher": "",
-            "room": "21",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "404",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "308",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "404",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Математика",
-            "teacher": "",
-            "room": "306",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "316/403",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Труд (технология)",
-            "teacher": "",
-            "room": "309",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "6в": [
-          {
-            "number": 1,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "309/411",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Математика",
-            "teacher": "",
-            "room": "307",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "История",
-            "teacher": "",
-            "room": "412",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "308",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "406",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          }
-        ],
-        "6г": [
-          {
-            "number": 1,
-            "subject": "Математика",
-            "teacher": "",
-            "room": "304",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "308",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "410",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Музыка",
-            "teacher": "",
-            "room": "21",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "411/309",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Труд (технология)",
-            "teacher": "",
-            "room": "309",
             "startTime": "12:30",
             "endTime": "13:10"
           }
@@ -1765,207 +445,7 @@
         "7б": [
           {
             "number": 1,
-            "subject": "История",
-            "teacher": "",
-            "room": "412",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Труд (технология)",
-            "teacher": "",
-            "room": "420",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "405",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "309/411",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "405",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          }
-        ],
-        "7в": [
-          {
-            "number": 2,
-            "subject": "История",
-            "teacher": "",
-            "room": "412",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "300",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Литература",
-            "teacher": "",
-            "room": "410",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "409",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          }
-        ],
-        "7г": [
-          {
-            "number": 1,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "409",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Биология",
-            "teacher": "",
-            "room": "300",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Труд (технология)",
-            "teacher": "",
-            "room": "309",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Алгебра",
-            "teacher": "",
-            "room": "307",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Информатика",
-            "teacher": "",
-            "room": "312/313",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Классный час",
-            "teacher": "",
-            "room": "411",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          }
-        ],
-        "8а": [
-          {
-            "number": 3,
-            "subject": "Информационная безопасность",
-            "teacher": "",
-            "room": "313",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "ОБЗР",
-            "teacher": "",
-            "room": "316",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Английский (все)",
-            "teacher": "",
-            "room": "222",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Классный час",
-            "teacher": "",
-            "room": "222",
-            "startTime": "14:20",
-            "endTime": "15:00"
-          }
-        ],
-        "8б": [
-          {
-            "number": 1,
-            "subject": "Биология",
+            "subject": "Разговоры о важном",
             "teacher": "",
             "room": "308",
             "startTime": "08:00",
@@ -1973,9 +453,9 @@
           },
           {
             "number": 2,
-            "subject": "Русский язык",
+            "subject": "Английский язык",
             "teacher": "",
-            "room": "409",
+            "room": "309/420",
             "startTime": "08:50",
             "endTime": "09:30"
           },
@@ -1989,7 +469,65 @@
           },
           {
             "number": 4,
-            "subject": "Физика",
+            "subject": "Русский язык",
+            "teacher": "",
+            "room": "405",
+            "startTime": "10:40",
+            "endTime": "11:20"
+          },
+          {
+            "number": 5,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "308",
+            "startTime": "11:35",
+            "endTime": "12:15"
+          },
+          {
+            "number": 6,
+            "subject": "Музыка",
+            "teacher": "",
+            "room": "21",
+            "startTime": "12:30",
+            "endTime": "13:10"
+          },
+          {
+            "number": 7,
+            "subject": "Консультация",
+            "teacher": "",
+            "room": "308",
+            "startTime": "13:20",
+            "endTime": "14:00"
+          }
+        ],
+        "7в": [
+          {
+            "number": 1,
+            "subject": "Разговоры о важном",
+            "teacher": "",
+            "room": "213",
+            "startTime": "08:00",
+            "endTime": "08:40"
+          },
+          {
+            "number": 2,
+            "subject": "История",
+            "teacher": "",
+            "room": "412",
+            "startTime": "08:50",
+            "endTime": "09:30"
+          },
+          {
+            "number": 3,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "308",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
+            "subject": "Русский язык",
             "teacher": "",
             "room": "310",
             "startTime": "10:40",
@@ -1997,33 +535,17 @@
           },
           {
             "number": 5,
-            "subject": "География",
+            "subject": "Литература",
             "teacher": "",
-            "room": "303",
+            "room": "411",
             "startTime": "11:35",
             "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Алгебра",
-            "teacher": "",
-            "room": "304",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Труд (технология)",
-            "teacher": "",
-            "room": "420",
-            "startTime": "13:20",
-            "endTime": "14:00"
           }
         ],
-        "8в": [
+        "7г": [
           {
             "number": 1,
-            "subject": "Литература",
+            "subject": "Разговоры о важном",
             "teacher": "",
             "room": "405",
             "startTime": "08:00",
@@ -2031,243 +553,51 @@
           },
           {
             "number": 2,
-            "subject": "Музыка",
+            "subject": "Информационная безопасность",
             "teacher": "",
-            "room": "21",
+            "room": "312",
             "startTime": "08:50",
             "endTime": "09:30"
           },
           {
             "number": 3,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "403/222",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          }
-        ],
-        "8г": [
-          {
-            "number": 1,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "403",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "ОБЗР",
-            "teacher": "",
-            "room": "316",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Алгебра",
-            "teacher": "",
-            "room": "304",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "407",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Вероятность и статистика",
-            "teacher": "",
-            "room": "304",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Музыка",
-            "teacher": "",
-            "room": "21",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "География",
-            "teacher": "",
-            "room": "303",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Классный час",
-            "teacher": "",
-            "room": "403",
-            "startTime": "14:20",
-            "endTime": "15:00"
-          }
-        ],
-        "9а": [
-          {
-            "number": 1,
-            "subject": "Труд (технология)",
-            "teacher": "",
-            "room": "420",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Алгебра",
-            "teacher": "",
-            "room": "306",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "407",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Информатика",
-            "teacher": "",
-            "room": "313",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 6,
-            "subject": "Актовый зал",
-            "teacher": "",
-            "room": "",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          }
-        ],
-        "9б": [
-          {
-            "number": 1,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "407",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
             "subject": "Литература",
             "teacher": "",
-            "room": "407",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "ОБЗР",
-            "teacher": "",
-            "room": "316",
+            "room": "411",
             "startTime": "09:45",
             "endTime": "10:25"
           },
           {
             "number": 4,
-            "subject": "Алгебра",
+            "subject": "Музыка",
             "teacher": "",
-            "room": "306",
+            "room": "21",
             "startTime": "10:40",
             "endTime": "11:20"
           },
           {
             "number": 5,
-            "subject": "Английский язык",
+            "subject": "Алгебра",
             "teacher": "",
-            "room": "209/222",
+            "room": "307",
             "startTime": "11:35",
             "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Актовый зал",
-            "teacher": "",
-            "room": "",
-            "startTime": "12:30",
-            "endTime": "13:10"
           }
         ],
-        "9в": [
+        "8а": [
           {
             "number": 1,
-            "subject": "Физика",
+            "subject": "Разговоры о важном",
             "teacher": "",
-            "room": "310",
+            "room": "209",
             "startTime": "08:00",
             "endTime": "08:40"
           },
           {
             "number": 2,
-            "subject": "Русский язык",
+            "subject": "Английский",
             "teacher": "",
-            "room": "406",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Алгебра",
-            "teacher": "",
-            "room": "306",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "403/209",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Труд (технология)",
-            "teacher": "",
-            "room": "420",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Актовый зал",
-            "teacher": "",
-            "room": "",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          }
-        ],
-        "9г": [
-          {
-            "number": 2,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
+            "room": "222",
             "startTime": "08:50",
             "endTime": "09:30"
           },
@@ -2275,7 +605,7 @@
             "number": 3,
             "subject": "Русский язык",
             "teacher": "",
-            "room": "406",
+            "room": "404",
             "startTime": "09:45",
             "endTime": "10:25"
           },
@@ -2283,7 +613,7 @@
             "number": 4,
             "subject": "Биология",
             "teacher": "",
-            "room": "300",
+            "room": "316",
             "startTime": "10:40",
             "endTime": "11:20"
           },
@@ -2297,117 +627,51 @@
           },
           {
             "number": 6,
-            "subject": "Актовый зал",
+            "subject": "Алгебра",
             "teacher": "",
-            "room": "",
+            "room": "308",
             "startTime": "12:30",
             "endTime": "13:10"
           },
           {
             "number": 7,
-            "subject": "Английский язык",
+            "subject": "Физическая культура",
             "teacher": "",
-            "room": "209/403",
+            "room": "с/з",
             "startTime": "13:20",
             "endTime": "14:00"
           }
         ],
-        "10а (ГУМ)": [
+        "8б": [
           {
             "number": 1,
-            "subject": "Физическая культура",
+            "subject": "Разговоры о важном",
             "teacher": "",
-            "room": "с/з",
+            "room": "403",
             "startTime": "08:00",
             "endTime": "08:40"
           },
           {
             "number": 2,
-            "subject": "Английский язык",
+            "subject": "География",
             "teacher": "",
-            "room": "209",
+            "room": "303",
             "startTime": "08:50",
             "endTime": "09:30"
           },
           {
             "number": 3,
-            "subject": "Основы экономики",
+            "subject": "Английский язык",
             "teacher": "",
-            "room": "209",
+            "room": "209/420",
             "startTime": "09:45",
             "endTime": "10:25"
           },
           {
             "number": 4,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "408",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
-            "subject": "Алгебра",
-            "teacher": "",
-            "room": "305",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Обществознание",
-            "teacher": "",
-            "room": "410",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Классный час",
-            "teacher": "",
-            "room": "209",
-            "startTime": "14:20",
-            "endTime": "15:00"
-          }
-        ],
-        "10а (ЕН)": [
-          {
-            "number": 1,
-            "subject": "Физическая культура",
-            "teacher": "",
-            "room": "с/з",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
             "subject": "Химия",
             "teacher": "",
             "room": "213",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Основы экономики",
-            "teacher": "",
-            "room": "209",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "408",
             "startTime": "10:40",
             "endTime": "11:20"
           },
@@ -2415,99 +679,331 @@
             "number": 5,
             "subject": "Алгебра",
             "teacher": "",
-            "room": "305",
+            "room": "304",
             "startTime": "11:35",
             "endTime": "12:15"
           },
           {
             "number": 6,
-            "subject": "Обществознание",
-            "teacher": "",
-            "room": "410",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Классный час",
-            "teacher": "",
-            "room": "209",
-            "startTime": "14:20",
-            "endTime": "15:00"
-          }
-        ],
-        "10б": [
-          {
-            "number": 1,
-            "subject": "Обществознание",
-            "teacher": "",
-            "room": "410",
-            "startTime": "08:00",
-            "endTime": "08:40"
-          },
-          {
-            "number": 2,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "08:50",
-            "endTime": "09:30"
-          },
-          {
-            "number": 3,
-            "subject": "Русский язык",
-            "teacher": "",
-            "room": "408",
-            "startTime": "09:45",
-            "endTime": "10:25"
-          },
-          {
-            "number": 4,
-            "subject": "Алгебра",
-            "teacher": "",
-            "room": "305",
-            "startTime": "10:40",
-            "endTime": "11:20"
-          },
-          {
-            "number": 5,
             "subject": "Информатика",
             "teacher": "",
             "room": "313/312",
-            "startTime": "11:35",
-            "endTime": "12:15"
-          },
-          {
-            "number": 6,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "222",
             "startTime": "12:30",
             "endTime": "13:10"
+          },
+          {
+            "number": 7,
+            "subject": "Литература",
+            "teacher": "",
+            "room": "412",
+            "startTime": "13:20",
+            "endTime": "14:00"
           }
         ],
-        "11а": [
+        "8в": [
           {
             "number": 1,
-            "subject": "Английский язык",
+            "subject": "Разговоры о важном",
             "teacher": "",
-            "room": "209",
+            "room": "310",
             "startTime": "08:00",
             "endTime": "08:40"
           },
           {
             "number": 2,
-            "subject": "Обществознание",
+            "subject": "История",
+            "teacher": "",
+            "room": "411",
+            "startTime": "08:50",
+            "endTime": "09:30"
+          },
+          {
+            "number": 3,
+            "subject": "Литература",
+            "teacher": "",
+            "room": "405",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "308",
+            "startTime": "10:40",
+            "endTime": "11:20"
+          },
+          {
+            "number": 5,
+            "subject": "Русский язык",
+            "teacher": "",
+            "room": "405",
+            "startTime": "11:35",
+            "endTime": "12:15"
+          },
+          {
+            "number": 6,
+            "subject": "Военные,учебные сборы",
+            "teacher": "",
+            "room": "316",
+            "startTime": "12:30",
+            "endTime": "13:10"
+          }
+        ],
+        "8г": [
+          {
+            "number": 2,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "304",
+            "startTime": "08:50",
+            "endTime": "09:30"
+          },
+          {
+            "number": 3,
+            "subject": "Физическая культура",
+            "teacher": "",
+            "room": "с/з",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
+            "subject": "Русский язык",
+            "teacher": "",
+            "room": "407",
+            "startTime": "10:40",
+            "endTime": "11:20"
+          },
+          {
+            "number": 5,
+            "subject": "Литература",
+            "teacher": "",
+            "room": "407",
+            "startTime": "11:35",
+            "endTime": "12:15"
+          },
+          {
+            "number": 6,
+            "subject": "История",
+            "teacher": "",
+            "room": "411",
+            "startTime": "12:30",
+            "endTime": "13:10"
+          }
+        ],
+        "9а": [
+          {
+            "number": 1,
+            "subject": "Разговоры о важном",
             "teacher": "",
             "room": "410",
+            "startTime": "08:00",
+            "endTime": "08:40"
+          },
+          {
+            "number": 2,
+            "subject": "ОБЗР",
+            "teacher": "",
+            "room": "316",
+            "startTime": "08:50",
+            "endTime": "09:30"
+          },
+          {
+            "number": 3,
+            "subject": "История",
+            "teacher": "",
+            "room": "410",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
+            "subject": "Проектно- исследовательская деятельность",
+            "teacher": "",
+            "room": "410",
+            "startTime": "10:40",
+            "endTime": "11:20"
+          },
+          {
+            "number": 5,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "306",
+            "startTime": "11:35",
+            "endTime": "12:15"
+          },
+          {
+            "number": 6,
+            "subject": "Актовый зал",
+            "teacher": "",
+            "room": "",
+            "startTime": "12:30",
+            "endTime": "13:10"
+          },
+          {
+            "number": 7,
+            "subject": "Физика",
+            "teacher": "",
+            "room": "310",
+            "startTime": "13:20",
+            "endTime": "14:00"
+          },
+          {
+            "number": 8,
+            "subject": "Консультация",
+            "teacher": "",
+            "room": "306",
+            "startTime": "14:20",
+            "endTime": "15:00"
+          }
+        ],
+        "9б": [
+          {
+            "number": 1,
+            "subject": "Разговоры о важном",
+            "teacher": "",
+            "room": "300",
+            "startTime": "08:00",
+            "endTime": "08:40"
+          },
+          {
+            "number": 2,
+            "subject": "Химия",
+            "teacher": "",
+            "room": "213",
+            "startTime": "08:50",
+            "endTime": "09:30"
+          },
+          {
+            "number": 3,
+            "subject": "Проектно- исследовательская деятельность",
+            "teacher": "",
+            "room": "300",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
+            "subject": "Биология",
+            "teacher": "",
+            "room": "300",
+            "startTime": "10:40",
+            "endTime": "11:20"
+          },
+          {
+            "number": 5,
+            "subject": "Физика",
+            "teacher": "",
+            "room": "310",
+            "startTime": "11:35",
+            "endTime": "12:15"
+          },
+          {
+            "number": 6,
+            "subject": "Актовый зал",
+            "teacher": "",
+            "room": "",
+            "startTime": "12:30",
+            "endTime": "13:10"
+          },
+          {
+            "number": 7,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "306",
+            "startTime": "13:20",
+            "endTime": "14:00"
+          },
+          {
+            "number": 8,
+            "subject": "Русский язык",
+            "teacher": "",
+            "room": "407",
+            "startTime": "14:20",
+            "endTime": "15:00"
+          }
+        ],
+        "9в": [
+          {
+            "number": 1,
+            "subject": "Разговоры о важном",
+            "teacher": "",
+            "room": "303",
+            "startTime": "08:00",
+            "endTime": "08:40"
+          },
+          {
+            "number": 2,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "306",
+            "startTime": "08:50",
+            "endTime": "09:30"
+          },
+          {
+            "number": 3,
+            "subject": "Информатика",
+            "teacher": "",
+            "room": "312/313",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
+            "subject": "Проектно- исследовательская деятельность",
+            "teacher": "",
+            "room": "303",
+            "startTime": "10:40",
+            "endTime": "11:20"
+          },
+          {
+            "number": 5,
+            "subject": "Литература",
+            "teacher": "",
+            "room": "406",
+            "startTime": "11:35",
+            "endTime": "12:15"
+          },
+          {
+            "number": 6,
+            "subject": "Актовый зал",
+            "teacher": "",
+            "room": "",
+            "startTime": "12:30",
+            "endTime": "13:10"
+          },
+          {
+            "number": 7,
+            "subject": "Обществознание",
+            "teacher": "",
+            "room": "411",
+            "startTime": "13:20",
+            "endTime": "14:00"
+          },
+          {
+            "number": 8,
+            "subject": "Физика",
+            "teacher": "",
+            "room": "310",
+            "startTime": "14:20",
+            "endTime": "15:00"
+          }
+        ],
+        "9г": [
+          {
+            "number": 1,
+            "subject": "Разговоры о важном",
+            "teacher": "",
+            "room": "404",
+            "startTime": "08:00",
+            "endTime": "08:40"
+          },
+          {
+            "number": 2,
+            "subject": "Физика",
+            "teacher": "",
+            "room": "310",
             "startTime": "08:50",
             "endTime": "09:30"
           },
@@ -2515,15 +1011,123 @@
             "number": 3,
             "subject": "Алгебра",
             "teacher": "",
-            "room": "305",
+            "room": "306",
             "startTime": "09:45",
             "endTime": "10:25"
           },
           {
             "number": 4,
-            "subject": "Химия",
+            "subject": "Литература",
             "teacher": "",
-            "room": "213",
+            "room": "406",
+            "startTime": "10:40",
+            "endTime": "11:20"
+          },
+          {
+            "number": 5,
+            "subject": "География",
+            "teacher": "",
+            "room": "303",
+            "startTime": "11:35",
+            "endTime": "12:15"
+          },
+          {
+            "number": 6,
+            "subject": "Актовый зал",
+            "teacher": "",
+            "room": "",
+            "startTime": "12:30",
+            "endTime": "13:10"
+          },
+          {
+            "number": 7,
+            "subject": "Биология",
+            "teacher": "",
+            "room": "300",
+            "startTime": "13:20",
+            "endTime": "14:00"
+          },
+          {
+            "number": 8,
+            "subject": "Консультация",
+            "teacher": "",
+            "room": "306",
+            "startTime": "14:20",
+            "endTime": "15:00"
+          }
+        ],
+        "10а (ГУМ)": [
+          {
+            "number": 1,
+            "subject": "Разговоры о важном (Актовый зал)",
+            "teacher": "",
+            "room": "",
+            "startTime": "08:00",
+            "endTime": "08:40"
+          },
+          {
+            "number": 2,
+            "subject": "История",
+            "teacher": "",
+            "room": "403",
+            "startTime": "08:50",
+            "endTime": "09:30"
+          },
+          {
+            "number": 3,
+            "subject": "Литература",
+            "teacher": "",
+            "room": "408",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "305",
+            "startTime": "10:40",
+            "endTime": "11:20"
+          },
+          {
+            "number": 5,
+            "subject": "История",
+            "teacher": "",
+            "room": "403",
+            "startTime": "11:35",
+            "endTime": "12:15"
+          }
+        ],
+        "10а (ЕН)": [
+          {
+            "number": 1,
+            "subject": "Разговоры о важном (Актовый зал)",
+            "teacher": "",
+            "room": "",
+            "startTime": "08:00",
+            "endTime": "08:40"
+          },
+          {
+            "number": 2,
+            "subject": "Биология",
+            "teacher": "",
+            "room": "300",
+            "startTime": "08:50",
+            "endTime": "09:30"
+          },
+          {
+            "number": 3,
+            "subject": "Литература",
+            "teacher": "",
+            "room": "408",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "305",
             "startTime": "10:40",
             "endTime": "11:20"
           },
@@ -2537,65 +1141,49 @@
           },
           {
             "number": 6,
-            "subject": "Английский язык",
-            "teacher": "",
-            "room": "209",
-            "startTime": "12:30",
-            "endTime": "13:10"
-          },
-          {
-            "number": 7,
-            "subject": "Основы экономики",
+            "subject": "Химия",
             "teacher": "",
             "room": "213",
-            "startTime": "13:20",
-            "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Классный час",
-            "teacher": "",
-            "room": "305",
-            "startTime": "14:20",
-            "endTime": "15:00"
+            "startTime": "12:30",
+            "endTime": "13:10"
           }
         ],
-        "11б (ТЕХ)": [
+        "10б": [
           {
             "number": 1,
-            "subject": "Классный час",
+            "subject": "Разговоры о важном (Актовый зал)",
             "teacher": "",
-            "room": "305",
+            "room": "",
             "startTime": "08:00",
             "endTime": "08:40"
           },
           {
             "number": 2,
-            "subject": "Информатика",
+            "subject": "Литература",
             "teacher": "",
-            "room": "313",
+            "room": "408",
             "startTime": "08:50",
             "endTime": "09:30"
           },
           {
             "number": 3,
-            "subject": "Научные основы физики",
+            "subject": "Алгебра",
             "teacher": "",
-            "room": "310",
+            "room": "305",
             "startTime": "09:45",
             "endTime": "10:25"
           },
           {
             "number": 4,
-            "subject": "Английский язык",
+            "subject": "История",
             "teacher": "",
-            "room": "222",
+            "room": "403",
             "startTime": "10:40",
             "endTime": "11:20"
           },
           {
             "number": 5,
-            "subject": "Русский язык",
+            "subject": "Литература",
             "teacher": "",
             "room": "408",
             "startTime": "11:35",
@@ -2603,43 +1191,101 @@
           },
           {
             "number": 6,
-            "subject": "Алгебра",
+            "subject": "Обществознание",
             "teacher": "",
-            "room": "305",
+            "room": "403",
             "startTime": "12:30",
             "endTime": "13:10"
           },
           {
             "number": 7,
-            "subject": "Алгебра",
+            "subject": "Вероятность и статистика",
             "teacher": "",
             "room": "305",
             "startTime": "13:20",
             "endTime": "14:00"
-          },
-          {
-            "number": 8,
-            "subject": "Физика",
-            "teacher": "",
-            "room": "310",
-            "startTime": "14:20",
-            "endTime": "15:00"
           }
         ],
-        "11б (ЕН)": [
+        "11а": [
           {
             "number": 1,
-            "subject": "Классный час",
+            "subject": "Разговоры о важном (Актовый зал)",
             "teacher": "",
-            "room": "305",
+            "room": "",
             "startTime": "08:00",
             "endTime": "08:40"
           },
           {
             "number": 2,
-            "subject": "Английский язык",
+            "subject": "Основы права",
             "teacher": "",
-            "room": "222",
+            "room": "410",
+            "startTime": "08:50",
+            "endTime": "09:30"
+          },
+          {
+            "number": 3,
+            "subject": "Физика",
+            "teacher": "",
+            "room": "310",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
+            "subject": "Литература",
+            "teacher": "",
+            "room": "408",
+            "startTime": "10:40",
+            "endTime": "11:20"
+          },
+          {
+            "number": 5,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "305",
+            "startTime": "11:35",
+            "endTime": "12:15"
+          },
+          {
+            "number": 6,
+            "subject": "Русский язык. От простого к сложному",
+            "teacher": "",
+            "room": "408",
+            "startTime": "12:30",
+            "endTime": "13:10"
+          },
+          {
+            "number": 7,
+            "subject": "Русский язык",
+            "teacher": "",
+            "room": "408",
+            "startTime": "13:20",
+            "endTime": "14:00"
+          },
+          {
+            "number": 8,
+            "subject": "Общественная география мира",
+            "teacher": "",
+            "room": "303",
+            "startTime": "14:20",
+            "endTime": "15:00"
+          }
+        ],
+        "11б (ТЕХ)": [
+          {
+            "number": 1,
+            "subject": "Разговоры о важном (Актовый зал)",
+            "teacher": "",
+            "room": "",
+            "startTime": "08:00",
+            "endTime": "08:40"
+          },
+          {
+            "number": 2,
+            "subject": "Алгебра",
+            "teacher": "",
+            "room": "305",
             "startTime": "08:50",
             "endTime": "09:30"
           },
@@ -2653,43 +1299,85 @@
           },
           {
             "number": 4,
-            "subject": "Информатика",
+            "subject": "Английский язык",
             "teacher": "",
-            "room": "312",
+            "room": "222",
             "startTime": "10:40",
             "endTime": "11:20"
           },
           {
             "number": 5,
-            "subject": "Русский язык",
+            "subject": "ОБЗР",
             "teacher": "",
-            "room": "408",
+            "room": "316",
             "startTime": "11:35",
             "endTime": "12:15"
           },
           {
             "number": 6,
-            "subject": "Алгебра",
+            "subject": "Физика",
             "teacher": "",
-            "room": "305",
+            "room": "310",
             "startTime": "12:30",
             "endTime": "13:10"
           },
           {
             "number": 7,
+            "subject": "Алгоритмы и структуры данных",
+            "teacher": "",
+            "room": "313",
+            "startTime": "13:20",
+            "endTime": "14:00"
+          }
+        ],
+        "11б (ЕН)": [
+          {
+            "number": 1,
+            "subject": "Разговоры о важном (Актовый зал)",
+            "teacher": "",
+            "room": "",
+            "startTime": "08:00",
+            "endTime": "08:40"
+          },
+          {
+            "number": 2,
             "subject": "Алгебра",
             "teacher": "",
             "room": "305",
-            "startTime": "13:20",
-            "endTime": "14:00"
+            "startTime": "08:50",
+            "endTime": "09:30"
           },
           {
-            "number": 8,
+            "number": 3,
+            "subject": "Биология",
+            "teacher": "",
+            "room": "316",
+            "startTime": "09:45",
+            "endTime": "10:25"
+          },
+          {
+            "number": 4,
+            "subject": "Английский язык",
+            "teacher": "",
+            "room": "222",
+            "startTime": "10:40",
+            "endTime": "11:20"
+          },
+          {
+            "number": 5,
+            "subject": "ОБЗР",
+            "teacher": "",
+            "room": "316",
+            "startTime": "11:35",
+            "endTime": "12:15"
+          },
+          {
+            "number": 6,
             "subject": "Физика",
             "teacher": "",
             "room": "310",
-            "startTime": "14:20",
-            "endTime": "15:00"
+            "startTime": "12:30",
+            "endTime": "13:10"
           }
         ]
       }
